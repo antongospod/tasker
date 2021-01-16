@@ -25,8 +25,8 @@ class Router
     /**
      * Add a route to the routing table
      *
-     * @param string $route  The route URL
-     * @param array  $params Parameters (controller, action, etc.)
+     * @param string $route The route URL
+     * @param array $params Parameters (controller, action, etc.)
      *
      * @return void
      */
@@ -128,6 +128,9 @@ class Router
                 throw new Exception("Controller class $controller not found");
             }
         } else {
+            View::render('partials/_header.php');
+            View::render('partials/404.php');
+            View::render('partials/_footer.php');
             throw new Exception('No route matched.', 404);
         }
     }

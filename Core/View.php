@@ -3,6 +3,7 @@
 namespace Core;
 
 use Exception;
+
 /**
  * View
  */

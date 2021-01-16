@@ -9,6 +9,7 @@ use Exception;
  */
 abstract class Controller
 {
+
     /**
      * @param string $modelName The name of the Model class
      *
@@ -39,7 +40,7 @@ abstract class Controller
         $method = $name . 'Action';
 
         if (method_exists($this, $method)) {
-                call_user_func_array([$this, $method], $args);
+            call_user_func_array([$this, $method], $args);
         } else {
             throw new Exception("Method $method not found in controller " . get_class($this));
         }

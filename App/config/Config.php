@@ -71,7 +71,7 @@ class Config
      * Base application path
      * @var string
      */
-    const BASE = '/';
+    const BASE = '';
 
     /**
      * Base application assets path

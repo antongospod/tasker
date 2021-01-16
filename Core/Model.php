@@ -2,14 +2,14 @@
 
 namespace Core;
 
-use Core\Database;
-use Core\Helpers;
+use function is_array;
 
 /**
  * This is Description of Model class
  */
 abstract class Model
 {
+
     /** @var Database */
     protected $db;
 
@@ -30,7 +30,7 @@ abstract class Model
     {
         foreach ($data as $key => $val) {
             $key = Helpers::clean($key);
-            $val = \is_array($val) ? $this->sanitizeForm($val) : Helpers::clean($val);
+            $val = is_array($val) ? $this->sanitizeForm($val) : Helpers::clean($val);
             $data[$key] = $val;
         }
 
@@ -42,7 +42,8 @@ abstract class Model
      *
      * @return Model
      */
-    protected function setFields(array $data = []): Model {
+    protected function setFields(array $data = []): Model
+    {
         foreach ($data as $key => $value) {
             $this->$key = $value;
         }
