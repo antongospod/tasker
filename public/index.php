@@ -12,9 +12,9 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 /**
  * Error and Exception handling
  */
+// Errors reporting
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
-set_error_handler('Core\Error::errorHandler');
-set_exception_handler('Core\Error::exceptionHandler');
 
 /**
  * Start Session
@@ -28,7 +28,10 @@ $router = new Core\Router();
 
 // Add the routes
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
-$router->add('{controller}/{action}');
+$router->add('create', ['controller' => 'HomeController', 'action' => 'create']);
+$router->add('edit/{id:\d+}', ['controller' => 'HomeController', 'action' => 'edit']);
+$router->add('login', ['controller' => 'UserController', 'action' => 'login']);
+$router->add('logout', ['controller' => 'UserController', 'action' => 'logout']);
 
 try {
     $router->dispatch($_SERVER['QUERY_STRING']);
