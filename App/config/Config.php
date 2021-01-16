@@ -66,4 +66,16 @@ class Config
      * @var int
      */
     const ADMIN_ID = 1;
+
+    /**
+     * Base application path
+     * @var string
+     */
+    const BASE = '/';
+
+    /**
+     * Base application assets path
+     * @var string
+     */
+    const BASE_ASSET_PATH = 'assets';
 }
