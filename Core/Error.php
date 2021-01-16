@@ -56,7 +56,9 @@ class Error
 
             error_log($message);
 
-            View::render("$code.php");
+            View::render('partials/_header.php');
+            View::render("partials/$code.php");
+            View::render('partials/_footer.php');
         }
     }
 }
