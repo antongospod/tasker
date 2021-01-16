@@ -6,7 +6,8 @@ use PDO;
 use PDOException;
 use App\config\Config;
 
-class Database {
+class Database
+{
 
     /** @var PDO */
     public $database;
@@ -36,7 +37,7 @@ class Database {
             if (!$this->database) {
                 throw new PDOException('Error connection to DB');
             }
-        } catch(PDOException $ex) {
+        } catch (PDOException $ex) {
             $this->errors = $ex;
             echo $this->errors;
             exit;
@@ -60,7 +61,8 @@ class Database {
      *
      * @return void
      */
-    public static function closeConnection(&$connection = null) {
+    public static function closeConnection(&$connection = null)
+    {
         if ($connection) {
             $connection = null;
         } else {
@@ -68,5 +70,7 @@ class Database {
         }
     }
 
-    private function __clone() {}
+    private function __clone()
+    {
+    }
 }
